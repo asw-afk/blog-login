@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div class="container dark">
     <!-- 1. 3 containers 
             One for the image
             One for the login
@@ -23,20 +24,45 @@
         3. Need a forum page that will swap over after submit.
             Needs to displays previous posts
         
-        4. Need a dark mode.-->
+        4. Need a dark mode.
+            -->
 
 
-        <header> 
-            <!-- I want this to display between pages
+    <header>
+        <!-- I want this to display between pages
             I want a dark mode button here. -->
-        </header>
+            <label class="switch col">
+                <input type="checkbox" id="theme-switcher">
+                <span class="slider round"></span>
+</label>
+    </header>
 
-    <div> 
-        <!-- User input boxes go here -->
-    </div>
+
+    <!-- User input boxes go here -->
+    <article>
+        <div class="input-group">
+            <label for="username">Username: </label>
+            <input type="text" name="username" id="email" placeholder="Username" />
+        </div>
+        <div class="input-group">
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" placeholder="Title" />
+        </div>
+
+        <div class="input-group">
+            <label for="comment">Comment: </label>
+            <input type="comment" name="comment" id="comment" placeholder="Comment" />
+        </div>
+
+        <button id="submit">Submit</button>
+
+    </article>
 
     <aside>
         <!-- Icon box goes here -->
+
+
+
     </aside>
 
 
@@ -46,6 +72,7 @@
 
 
     <script src="./assets/script.js"></script>
-
+</div>
 </body>
+
 </html>
