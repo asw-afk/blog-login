@@ -1,44 +1,110 @@
 const usernameInput = document.querySelector('#username');
 const titleInput = document.querySelector('#title');
 const commentInput = document.querySelector('#comment');
-const submitButtonInput = document.querySelector('#submit');
+
+const commentCountSpan = document.querySelector('#thread-count');
+
+const submitButtonInput = document.querySelector('#submitButton');
+const backButtonInput = document.querySelector('#back');
+
+let user = [];
+
+// const thread = []; 
+
+
+// Function that renders the data on screen
+// function renderCommentData() {
+
+//     // const lastPost = JSON.parse(localStorage.getItem('user'));
+
+//     commentCountSpan.textContent = thread.length;
+
+
+//     for( let i = 0; i < thread.length; i++) {
+//         const ff = thread[i];
+
+//         const li = document.createElement('li');
+//         li.textContent = ff;
+//         li.setAttribute('data-index', i);
+
+//         li.appendChild(button);
+//         commentCountSpan.appendChild(li);
+
+//         // const button = document.createElement('button');
+//         // button.textContent = 'compeltefsefs';
+//     }
+
+
+//    // if(lastPost !== null) {
+//    //     document.getElementById('title-id').innerHTML = lastPost.title;
+//    //     document.getElementById('comment-id').innerHTML = lastPost.comment;
+//    //     document.getElementById('username-id').innerHTML = lastPost.username;
+//    // };
+
+//    // if (user !== null) {
+//    //     document.getElementById(user)
+//    // }
+// }
+
+
+//renderCommentData();
+console.log("ffF");
 
 
 // Redirection on submit to post.html
 
 // window.location.href = "./assets/post.html"
 
-// Function that saves and stores the user input locally
 submitButton.addEventListener('click', function (event) {
     event.preventDefault();
+    saveUser();
+    //renderCommentData();
+    console.log("ff");
+});
 
+// Function that saves and stores the user input locally
+// submitButton.addEventListener('click', function (event) {
+
+function saveUser() {
     //create post object
-    const user = {
+    let user = {
         username: usernameInput.value,
         title: titleInput.value,
-        comment: commentInput.value, 
-        
+        comment: commentInput.value,
+
     };
     console.log('kill me');
     localStorage.setItem('user', JSON.stringify(user));
 
+    // Changes webpage to post.html
+    //window.location.href = "./assets/post.html"
+    console.log('dont kill me');
+};
 
-    //Changes webpages
-    window.location.href = "./assets/post.html"
-
-
-});
-
-
-// Function that renders the data on screen
-function renderCommentData() {
-
-    const newComment = JSON.parse(localStorage.getItem('user'));
-
-    if (user !== null) {
-        document.getElementById()
-    }
+function renderUser() {
+    localStorage.getItem('user', JSON.parse(user));
 }
+
+
+
+
+
+// function init () {
+//     renderCommentData();
+// }
+
+// init();
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -54,7 +120,7 @@ let mode = 'dark';
 themeSwitcher.addEventListener('click', function () {
     // If mode is dark, apply light background
     if (mode === 'dark') {
-        mode = 'light'; 
+        mode = 'light';
         container.setAttribute('class', 'light');
     }
     // If mode is light, apply dark background
@@ -64,7 +130,7 @@ themeSwitcher.addEventListener('click', function () {
     }
 });
 
-themeSwitcher.addEventListener('click', function() {
+themeSwitcher.addEventListener('click', function () {
 
 });
 

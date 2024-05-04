@@ -5,11 +5,18 @@
 
 div {
     border: #111;
-    border-style: solid;
+    /* border-style: solid; */
     padding: 20px;
+    
+/* display: flex;
+flex-direction: row-reverse;
+align-items: center;
+justify-content: center; */
 }
 
 article {
+    
+
     border: #111;
     border-style: solid;
     padding: 20px;
@@ -18,6 +25,18 @@ article {
 header {
     border-style: solid;
 }
+
+main {
+    display: flex;
+flex-direction: row-reverse;
+align-items: center;
+justify-content: center;
+}
+
+/* label {
+    display: flex;
+
+} */
 
 /* body {
     display: block;
