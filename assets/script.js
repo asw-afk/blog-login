@@ -2,65 +2,77 @@ const usernameInput = document.querySelector('#username');
 const titleInput = document.querySelector('#title');
 const commentInput = document.querySelector('#comment');
 
-const commentCountSpan = document.querySelector('#thread-count');
+const commentCountSpan = document.querySelector('#threadCount');
 
 const submitButtonInput = document.querySelector('#submitButton');
 const backButtonInput = document.querySelector('#back');
 
-let user = [];
-
-// const thread = []; 
-
-
-// Function that renders the data on screen
-// function renderCommentData() {
-
-//     // const lastPost = JSON.parse(localStorage.getItem('user'));
-
-//     commentCountSpan.textContent = thread.length;
-
-
-//     for( let i = 0; i < thread.length; i++) {
-//         const ff = thread[i];
-
-//         const li = document.createElement('li');
-//         li.textContent = ff;
-//         li.setAttribute('data-index', i);
-
-//         li.appendChild(button);
-//         commentCountSpan.appendChild(li);
-
-//         // const button = document.createElement('button');
-//         // button.textContent = 'compeltefsefs';
-//     }
-
-
-//    // if(lastPost !== null) {
-//    //     document.getElementById('title-id').innerHTML = lastPost.title;
-//    //     document.getElementById('comment-id').innerHTML = lastPost.comment;
-//    //     document.getElementById('username-id').innerHTML = lastPost.username;
-//    // };
-
-//    // if (user !== null) {
-//    //     document.getElementById(user)
-//    // }
-// }
+const user = []; 
 
 
 //renderCommentData();
 console.log("ffF");
 
+function renderTodos() {
+
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    //commentCountSpan.commentInput = '';
+    commentCountSpan.textContent = user.length;
+
+   
+   
+    for (let i = 0; i <user.length; i++) {
+        const user = storedUser[i];
+        
+        const li = document.createElement('li');
+        li.textContent = user;
+        li.setAttribute('data-index', i);
+
+        //const button = document.createElement('button');
+
+        li.appendChild(button);
+        commentCountSpan.appendChild(li);
+    }
+    console.log(user.length);
+}
+
+function init() {
+
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+
+    if (storedUser !== null) {
+        user = storedUser; 
+    }
+        //calls the renderTodos function
+        renderTodos();
+    
+}
+
+function storeTodos() {
+    localStorage.setItem('user', JSON.stringify(user))
+}
+
+//add submit event to form
+todoForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const todoText = todoInput;
+
+    if (todoText === '') {
+        return;
+    }
+
+    user.push(todoText);
+    todoInput.value = '';
+
+    storeTodos();
+    renderTodos();
+
+});
 
 // Redirection on submit to post.html
 
 // window.location.href = "./assets/post.html"
-
-submitButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    saveUser();
-    //renderCommentData();
-    console.log("ff");
-});
 
 // Function that saves and stores the user input locally
 // submitButton.addEventListener('click', function (event) {
@@ -74,19 +86,86 @@ function saveUser() {
 
     };
     console.log('kill me');
+
+
+    //const userArray = Object.values(user);
+    //console.log(userArray.count);
+
     localStorage.setItem('user', JSON.stringify(user));
 
     // Changes webpage to post.html
-    //window.location.href = "./assets/post.html"
+    ///window.location.href = "./assets/post.html"
     console.log('dont kill me');
+
+    console.log(commentCountSpan);
 };
 
-function renderUser() {
-    localStorage.getItem('user', JSON.parse(user));
-}
+
+// function renderUser() {
+//    JSON.parse(localStorage.getItem("user"));
+//     console.log('krill');
+
+//     commentCountSpan.textContent = ("user");
+//     //commentCountSpan.textContent = 
+// };
 
 
 
+
+
+
+
+
+
+
+
+
+init();
+
+// todoForm.addEventListener('submit', function (event) {
+//     // event.preventDefault();
+
+//     const todoText = todoInput.value;
+
+//     if (todoText === '') {
+
+//     }
+
+//     todoInput.value = '';
+
+// storeTodos();
+// renderTodos();
+
+// });
+
+
+
+// function init () {
+//     const storedTodos = JSON.parse(localStorage.getItem('user'));
+
+//     if (storedTodos !== null) {
+//         users = storedTodos;
+//     }
+
+//     renderTodos();
+
+// }
+
+
+
+submitButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    saveUser();
+    renderTodos();
+    console.log("ff");
+});
+
+
+
+
+
+
+//console.log(user.count);
 
 
 // function init () {
