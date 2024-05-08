@@ -7,68 +7,15 @@ const commentCountSpan = document.querySelector('#threadCount');
 const submitButtonInput = document.querySelector('#submitButton');
 const backButtonInput = document.querySelector('#back');
 
-const user = []; 
+
+
+
+//const user = []; 
 
 
 //renderCommentData();
 console.log("ffF");
 
-function renderTodos() {
-
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    //commentCountSpan.commentInput = '';
-    commentCountSpan.textContent = user.length;
-
-   
-   
-    for (let i = 0; i <user.length; i++) {
-        const user = storedUser[i];
-        
-        const li = document.createElement('li');
-        li.textContent = user;
-        li.setAttribute('data-index', i);
-
-        //const button = document.createElement('button');
-
-        li.appendChild(button);
-        commentCountSpan.appendChild(li);
-    }
-    console.log(user.length);
-}
-
-function init() {
-
-    const storedUser = JSON.parse(localStorage.getItem('user'));
-
-    if (storedUser !== null) {
-        user = storedUser; 
-    }
-        //calls the renderTodos function
-        renderTodos();
-    
-}
-
-function storeTodos() {
-    localStorage.setItem('user', JSON.stringify(user))
-}
-
-//add submit event to form
-todoForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const todoText = todoInput;
-
-    if (todoText === '') {
-        return;
-    }
-
-    user.push(todoText);
-    todoInput.value = '';
-
-    storeTodos();
-    renderTodos();
-
-});
 
 // Redirection on submit to post.html
 
@@ -94,7 +41,7 @@ function saveUser() {
     localStorage.setItem('user', JSON.stringify(user));
 
     // Changes webpage to post.html
-    ///window.location.href = "./assets/post.html"
+    window.location.href = "./assets/post.html"
     console.log('dont kill me');
 
     console.log(commentCountSpan);
@@ -112,13 +59,39 @@ function saveUser() {
 
 
 
+function renderTodos() {
 
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    //commentCountSpan.commentInput = '';
+    //commentCountSpan.textContent = user.length;
 
+   
+   
+    for (let i = 0; i <user.length; i++) {
+        const user = storedUser[i];
+        
+        const li = document.createElement('li');
+        li.textContent = user;
+        li.setAttribute('data-index', i);
 
+        const button = document.createElement('button');
 
+        li.appendChild(button);
+        commentCountSpan.appendChild(li);
+    }
+    console.log(user.length);
+}
 
+function init() {
 
+    const storedUser = JSON.parse(localStorage.getItem('user'));
 
+    if (storedUser !== null) {
+        user = storedUser; 
+        //calls the renderTodos function
+        renderTodos();
+    }
+}
 
 init();
 
